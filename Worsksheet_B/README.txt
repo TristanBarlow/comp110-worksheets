@@ -5,7 +5,7 @@ number_of_guesses = 5
 Answer = choose random from (random_word_libaray)
 Word_Length = find length of string(Answer)
 
-while Game = False and number_of_guesses < 6:
+while Game = False and number_of_guesses < 1:
     print("Im thinking of a word with", Word_Length, "letters\, can you guess it?")
     print(" You have", number_of_guesses, "left.")
     number_of_guesses = number_of_guesses - 1
