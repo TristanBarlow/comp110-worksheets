@@ -18,8 +18,6 @@ while Game = False and number_of_guesses < 6:
        elif:
            print("Your guess had", correct_letters, "in the right place")
 
-print ("Game Over")
- 
-           
-       
+print ("Your word was", Answer)           
+print ("Game Over")       
      
