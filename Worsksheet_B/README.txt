@@ -2,7 +2,7 @@ import random_word_library                                                      
 
 Game = False
 number_of_guesses = 5
-Answer = choose random from (random_word_libaray)                                      #picks a word at random and assigns to variable
+Answer = get random from (random_word_libaray)                                      #picks a word at random and assigns to variable
 Word_Length = find length of string(Answer)                                            #counts length of string and assigns to variable
 
 while Game = False and number_of_guesses < 1:                                          #loops untill 5 guesses or correct guess
