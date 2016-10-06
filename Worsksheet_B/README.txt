@@ -21,3 +21,4 @@ while Game = False and number_of_guesses < 1:                                   
 print ("Your word was", Answer)           
 print ("Game Over")       
      
+***** Flowchart link : "https://github.com/TristanBarlow/comp110-worksheets/blob/master/Worsksheet_B/Flowchart.png"****
