@@ -1,3 +1,4 @@
+'''
 import random_word_library                                                              #maximum of 7 letters long in library
 
 Game = False
@@ -20,5 +21,5 @@ while Game = False and number_of_guesses < 1:                                   
 
 print ("Your word was", Answer)           
 print ("Game Over")       
-     
-***** Flowchart link : "https://github.com/TristanBarlow/comp110-worksheets/blob/master/Worsksheet_B/Flowchart.png"****
+'''     
+![screenshot](Flowchart.png)
