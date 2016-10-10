@@ -22,4 +22,5 @@ while Game = False and number_of_guesses < 1:                                   
 print ("Your word was", Answer)           
 print ("Game Over")       
 '''     
-![screenshot](Flowchart.png)
+
+![Flowchart](Flowchart.png)
