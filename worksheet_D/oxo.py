@@ -1,55 +1,55 @@
 class OxoBoard:
-    def __init__(self,x,y):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.board = {(0,0): 0,(1,0):0, (2,0):0, (0,1):0, (1,1):0, (2,1):0, (0,2):0, (1,2):0, (2,2):0}
+        self.board = {(0, 0): 0,(1, 0): 0, (2, 0): 0,
+                      (0, 1): 0, (1, 1): 0, (2, 1): 0,
+                      (0, 2): 0, (1, 2): 0, (2, 2): 0}      # Creates dictionary.
 
-    def get_square(self, x , y):
-        return self.board[x,y]
+    def get_square(self, x, y):
+        return self.board[x, y]                             # Looks up value with the key (x, y) and returns it
 
     def set_square(self, x, y, mark):
         if self.board[x,y] == 0:
-            self.board[x, y] = mark
+            self.board[x, y] = mark                         # Changes the value assigned to the key to 'mark'
             return True
         else:
             return False
 
     def is_board_full(self):
         squares_searched = 0
-        for x in xrange(0, 3):
-            for y in xrange(0, 3):
-                if self.board[x, y] > 0:
-                    squares_searched += 1
+        for i in xrange(0, 3):
+            for j in xrange(0, 3):
+                if self.board[i, j] > 0:
+                    squares_searched += 1                   # A counter for number of squares searched
                 if squares_searched == 9:
                     return True
-                elif [x,y] == (2,2):
-                    return False
+        return False
 
-        """ If there are still empty squares on the board, return False.
-            If there are no empty squares, return True. """
+    def get_winner(self,player_number):
+        if self.board[1, 1] != 0:
+            # checks diagonal
+            if self.board[0, 0] == self.board[1, 1]:
+                if self.board[2, 2] == self.board[1, 1]:
+                    return player_number
+            # checks diagonal opposite direction
+            if self.board[2, 0] == self.board[1, 1]:
+                if self.board[0, 2] == self.board[1, 1]:
+                    return player_number
 
-    def get_winner(self,current_player):
-
-        if self.board[1,1] !=0:
-            if self.board[0,0] == self.board[1,1]:
-                if self.board [2,2] == self.board[1,1]:
-                    return current_player
-
-            if self.board [2,0] == self.board[1,1]:
-                if self.board [0,2] == self.board[1,1]:
-                    return current_player
-
-        for i in xrange (0,3):
-            if self.board [0,i] != 0:
-                if self.board [0,i] == self.board [1,i]:
-                    if self.board [0,i] == self.board [2,i]:
-                        return current_player
-
-            if self.board [i,0] != 0:
-                if self.board [i,0] == self.board [i, 1]:
-                    if self.board [i,0] == self.board [i,2]:
-                        return current_player
+        for i in xrange(0, 3):
+            # Checks rows
+            if self.board[0, i] != 0:
+                if self.board[0, i] == self.board[1, i]:
+                    if self.board[0, i] == self.board[2, i]:
+                        return player_number
+            # check columns
+            if self.board[i, 0] != 0:
+                if self.board[i, 0] == self.board[i, 1]:
+                    if self.board[i, 0] == self.board[i, 2]:
+                        return player_number
         return 0
+
     def show(self):
         """ Display the current board state in the terminal. You should not need to edit this. """
         for y in xrange(3):
@@ -99,7 +99,7 @@ if __name__ == '__main__':
 
         if board.set_square(x, y, current_player):
             # Move was played successfully, so check for a winner
-            winner = board.get_winner(current_player)
+            winner = board.get_winner(current_player)       # Edited this line to make winner easier to identify
             if winner != 0:
                 print "Player", winner, "wins!"
                 break   # End the game
