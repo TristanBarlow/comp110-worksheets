@@ -27,25 +27,19 @@ class OxoBoard:
     def get_winner(self,player_number):
         if self.board[1, 1] != 0:
             # checks diagonal
-            if self.board[0, 0] == self.board[1, 1]:
-                if self.board[2, 2] == self.board[1, 1]:
-                    return player_number
+            if self.board[0, 0] == self.board[1, 1] and self.board[2, 2] == self.board[1, 1]:
+                return player_number
             # checks diagonal opposite direction
-            if self.board[2, 0] == self.board[1, 1]:
-                if self.board[0, 2] == self.board[1, 1]:
-                    return player_number
+            if self.board[2, 0] == self.board[1, 1] and self.board[0, 2] == self.board[1, 1]:
+                return player_number
 
         for i in xrange(0, 3):
             # Checks rows
-            if self.board[0, i] != 0:
-                if self.board[0, i] == self.board[1, i]:
-                    if self.board[0, i] == self.board[2, i]:
-                        return player_number
+            if self.board[0, i] == self.board[1, i] and self.board[0, i] == self.board[2, i] and self.board[0, i] != 0:
+                    return player_number
             # check columns
-            if self.board[i, 0] != 0:
-                if self.board[i, 0] == self.board[i, 1]:
-                    if self.board[i, 0] == self.board[i, 2]:
-                        return player_number
+            if self.board[i, 0] != 0 and self.board[i, 0] == self.board[i, 2] and self.board[i, 0] == self.board[i, 1]:
+                return player_number
         return 0
 
     def show(self):
