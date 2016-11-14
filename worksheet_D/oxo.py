@@ -82,7 +82,7 @@ def input_square():
 
 # The main game. You should not need to edit this.
 if __name__ == '__main__':
-    board = OxoBoard(3, 3)
+    board = OxoBoard()
     current_player =1
     while True:
         print board.board
